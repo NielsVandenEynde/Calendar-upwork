@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<fx:root hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="598.0" prefWidth="719.0" stylesheets="@stylesheet.css" type="GridPane" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+	<rowConstraints>
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+	</rowConstraints>
+	<columnConstraints>
+		<ColumnConstraints hgrow="ALWAYS" maxWidth="95.33336639404297" minWidth="10.0" prefWidth="30.66662216186523" />
+		<ColumnConstraints hgrow="ALWAYS" maxWidth="170.00004450480145" minWidth="10.0" prefWidth="148.00004069010416" />
+		<ColumnConstraints hgrow="ALWAYS" maxWidth="122.66662597656247" minWidth="10.0" prefWidth="88.66666666666666" />
+		<ColumnConstraints hgrow="ALWAYS" maxWidth="134.0" minWidth="10.0" prefWidth="100.0" />
+		<ColumnConstraints hgrow="ALWAYS" maxWidth="94.666748046875" minWidth="6.666778564453125" prefWidth="7.333333333333314" />
+	</columnConstraints>
+	<children>
+		<Label fx:id="txtRegistreer" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="237.0" text="Registreer als dokter" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+			<font>
+				<Font name="System Bold" size="20.0" />
+			</font>
+		</Label>
+		<Label fx:id="txtGebruikersnaam" styleClass="txtforms" text="Gebruikersnaam:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+		<Label fx:id="txtVoornaam" styleClass="txtforms" text="Voornaam:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+		<Label fx:id="txtAchternaam" styleClass="txtforms" text="Achternaam:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+		<Label fx:id="txtEmail" styleClass="txtforms" text="Email" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+		<Label fx:id="txtWachtwoord" styleClass="txtforms" text="Wachtwoord:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+		<TextField fx:id="txfGebruikersnaam" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<TextField fx:id="txfVoornaam" onKeyPressed="#changeIncorrectLabel" prefHeight="25.0" prefWidth="111.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<TextField fx:id="txfAchternaam" onKeyPressed="#changeIncorrectLabel" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<TextField fx:id="txfEmail" onKeyPressed="#changeIncorrectLabel" prefHeight="25.0" prefWidth="174.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<PasswordField fx:id="pwdWachtwoord" onKeyPressed="#changeIncorrectLabel" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</PasswordField>
+		<Button fx:id="btnRegistreer" mnemonicParsing="false" onAction="#btnRegistreerAction" styleClass="btns" text="Registreer" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+		<Label styleClass="txtforms" text="*" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+		<Label styleClass="txtforms" text="*" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+		<Label fx:id="lblIncorrect" styleClass="txtforms" text="incorrect text" textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="12" />
+		<Label fx:id="txtLine1" prefHeight="17.0" prefWidth="111.0" styleClass="txtforms" text="Straat en nummer" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+		<TextField fx:id="txfLine1" prefHeight="25.0" prefWidth="196.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="6">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<Label fx:id="txtBus" styleClass="txtforms" text="Bus" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+		<TextField fx:id="txfLine2" styleClass="txtfields" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="7">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<Label fx:id="txtStad" styleClass="txtforms" text="Stad" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+		<Label fx:id="txtProvincie" styleClass="txtforms" text="Provincie/staat" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+		<Label fx:id="txtLand" styleClass="txtforms" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+		<TextField fx:id="txfCity" styleClass="txtfields" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="8">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<TextField fx:id="txfState" styleClass="txtfields" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="10">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<TextField fx:id="txfCountry" styleClass="txtfields" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="11">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<TextField fx:id="txfCity" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="8">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<TextField fx:id="txfState" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="10">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<TextField fx:id="txfCountry" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="11">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+		<Label fx:id="txtPostcode" styleClass="txtforms" text="Postcode" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+		<TextField fx:id="txfPostcode" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="9">
+			<styleClass>
+				<String fx:value="btns" />
+				<String fx:value="txtfields" />
+			</styleClass>
+		</TextField>
+	</children>
+	<padding>
+		<Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+	</padding>
+</fx:root>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<fx:root prefHeight="454.0" prefWidth="410.0" type="GridPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+   <rowConstraints>
+      <RowConstraints maxHeight="131.33331298828125" minHeight="10.0" prefHeight="67.33331346511841" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="283.00004069010413" minHeight="10.0" prefHeight="224.0000198682149" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="192.66670735677084" minHeight="10.0" prefHeight="128.99995930989587" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="134.66668701171875" minHeight="10.0" prefHeight="37.99995930989587" vgrow="ALWAYS" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="315.33338928222656" minWidth="10.0" prefWidth="241.99991861979166" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="191.333251953125" minWidth="10.0" prefWidth="168.66674804687497" />
+   </columnConstraints>
+   <children>
+      <ListView fx:id="list" onMouseClicked="#listOnMouseClicked" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
+        <buttons>
+          <Button mnemonicParsing="false" text="Terug" />
+            <Button fx:id="nieuwButton" mnemonicParsing="false" onAction="#nieuwButtonPressed" text="Nieuwe kalender" />
+        </buttons>
+      </ButtonBar>
+      <Label text="Overzicht" />
+      <DatePicker fx:id="picker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButtonPressed" text="Toevoegen" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   </children>
+</fx:root>

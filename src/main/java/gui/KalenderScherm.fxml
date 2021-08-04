@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<fx:root alignment="CENTER" prefHeight="619.0" prefWidth="527.0" type="GridPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <rowConstraints>
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="41.0" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="210.66668701171875" prefHeight="496.66667683919263" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="41.0" vgrow="ALWAYS" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="132.6666259765625" minWidth="1.3333179950714111" prefWidth="30.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="460.6666820049286" minWidth="10.0" prefWidth="434.6667423248291" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="168.33337402343756" minWidth="10.0" prefWidth="30.0" />
+   </columnConstraints>
+</fx:root>

@@ -1,27 +1,20 @@
 package repositories;
 
-import javax.persistence.Query;
-import javax.persistence.RollbackException;
-
 import java.util.List;
 
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
-import javax.persistence.NonUniqueResultException;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
-import javax.persistence.QueryTimeoutException;
+import javax.persistence.Query;
+import javax.persistence.RollbackException;
 import javax.persistence.TransactionRequiredException;
-
 import domein.Dokter;
 import domein.Patient;
 import exceptions.DatabankException;
 
-public class PatientRepository {
-
-
+public class DokterRepository {
 
 	private static final String persistence_unit_name = "plaskalender";
 	private static final String persistence_unit_name_LOCAL = "plaskalender";
@@ -48,21 +41,21 @@ public class PatientRepository {
 	}
 	
 
-	public void create(Patient object) throws EntityExistsException, IllegalArgumentException, TransactionRequiredException{
-		em.persist(object);
+	public void create(Dokter dokter) throws EntityExistsException, IllegalArgumentException, TransactionRequiredException{
+		em.persist(dokter);
 	}
 	
-	public List<Patient> findAll(Patient t) throws IllegalStateException, RollbackException{
-		List<T> list =em.createQuery(String.format("Select e From %s e",t.getClass().getSimpleName())).getResultList();
+	public List<Dokter> findAll(Dokter t) throws IllegalStateException, RollbackException{
+		List<Dokter> list =em.createQuery(String.format("Select e From %s e",t.getClass().getSimpleName())).getResultList();
 		return list; 
 	}
 
-    public Patient get(String id) throws IllegalArgumentException{
-        T entity = em.find(Patient.class, id)
+    public Dokter get(String id) throws IllegalArgumentException{
+        Dokter entity = em.find(Dokter.class, id);
         return entity;
     }
 
-	public Patient update(Patient object) throws IllegalArgumentException, TransactionRequiredException {
+	public Dokter update(Dokter object) throws IllegalArgumentException, TransactionRequiredException {
 		 return em.merge(object);
 	}
 
@@ -71,21 +64,21 @@ public class PatientRepository {
 	}
 
 	public boolean exists(String id) throws IllegalArgumentException {
-		Patient entity = em.find(Patient.class, id);
+		Dokter entity = em.find(Dokter.class, id);
         return entity != null;
 	}
 
-	public List<T> findAll(String soort) {
+	public List<Dokter> findAll(String soort) {
 		startTransaction();
-		List<T> list =em.createQuery(String.format("Select e From %s e",soort)).getResultList();
+		List<Dokter> list =em.createQuery(String.format("Select e From %s e",soort)).getResultList();
 		commitTransaction();
 		return list;
 	}
-
+	
 	public boolean checkGebruiker(String gebruikersnaam) throws DatabankException {
 		try {
 			startTransaction();
-			Query query = em.createNamedQuery("find Patient by gebruikersnaam");
+			Query query = em.createNamedQuery("find Dokter by gebruikersnaam");
 			query.setParameter("gebruikersnaam", gebruikersnaam);
 			if(query.getResultList().isEmpty()){
 				return false;	
@@ -103,12 +96,26 @@ public class PatientRepository {
 		
 		
 	}
-	public List<Patient>getPatientenVanDokter(String dokter) {
-		startTransaction();
-		Query q= em.createQuery("Select p from Patient p where p.dokter.gebruikersnaam like :dok");
-		q.setParameter("dok", dokter);
-		List<Patient> lijst = q.getResultList();
-		commitTransaction();
-		return lijst;
+
+	public String geefHash(String Gebruikersnaam) throws DatabankException {
+		try {
+			startTransaction();
+			Query query = em.createNamedQuery("find Dokter by gebruikersnaam");
+			query.setParameter("gebruikersnaam", Gebruikersnaam);
+			Object object = query.getSingleResult();			
+			if(!(object instanceof String)) {	
+				throw new IllegalArgumentException("Hash is geen String");
+			}
+			return (String) object;
+		}catch(Exception e) {
+			rollbackTransaction();
+			throw new DatabankException("GeenWerknemer");
+		}
+		finally {
+			if(em.getTransaction().isActive()) {
+				commitTransaction();	
+			}	
+		}
+		
 	}
 }

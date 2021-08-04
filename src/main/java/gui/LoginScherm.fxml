@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<fx:root alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="loginbackground" type="GridPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="600.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="1.7976931348623157E308" valignment="CENTER" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="1.7976931348623157E308" percentHeight="70.0" valignment="CENTER" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="1.7976931348623157E308" valignment="CENTER" vgrow="ALWAYS" />
+  </rowConstraints>
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="popupscreen" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <HBox alignment="CENTER" styleClass="logobanner" stylesheets="@taalscherm.css">
+               <children>
+                  <ImageView fitHeight="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/vinci.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="75.0" />
+               </VBox.margin>
+            </HBox>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="35.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="1.7976931348623157E308" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="1.7976931348623157E308" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="txt_user" styleClass="formlabel" stylesheets="@taalscherm.css" text="Gebruikersnaam:">
+                     <GridPane.margin>
+                        <Insets bottom="100.0" left="20.0" right="20.0" top="100.0" />
+                     </GridPane.margin></Label>
+                  <TextField fx:id="txfGebruikersnaam" onKeyPressed="#changeIncorrectLabel" styleClass="btns" stylesheets="@stylesheet.css" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="100.0" left="20.0" right="20.0" top="100.0" />
+                     </GridPane.margin></TextField>
+                  <Label fx:id="txt_pass" styleClass="formlabel" stylesheets="@taalscherm.css" text="Wachtwoord:" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="100.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <PasswordField fx:id="pwdWachtwoord" onKeyPressed="#changeIncorrectLabel" styleClass="btns" stylesheets="@stylesheet.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets bottom="100.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
+                  </PasswordField>
+               </children>
+            </GridPane>
+            <Label fx:id="lblIncorrect" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" visible="false">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnRegistreren" mnemonicParsing="false" onAction="#btnRegistrerenAfhandeling" styleClass="btns" stylesheets="@stylesheet.css" text="Registreren">
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnAanmelden" mnemonicParsing="false" onAction="#btnAanmeldenAfhandeling" styleClass="btns" stylesheets="@stylesheet.css" text="Aanmelden">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <stylesheets>
+            <URL value="@stylesheet.css" />
+            <URL value="@taalscherm.css" />
+         </stylesheets>
+      </VBox>
+      <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#btnCancelAfhandeling" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label fx:id="welkomtxt" text="Label" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   </children>
+   <stylesheets>
+      <URL value="@stylesheet.css" />
+      <URL value="@taalscherm.css" />
+   </stylesheets>
+</fx:root>

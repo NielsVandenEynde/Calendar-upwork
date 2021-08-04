@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<fx:root prefHeight="483.0" prefWidth="813.0" styleClass="background" stylesheets="@stylesheet.css" type="GridPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <rowConstraints>
+      <RowConstraints maxHeight="91.60001220703126" minHeight="10.0" percentHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+      <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="30.0" prefHeight="110.99998168945314" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="30.0" prefHeight="158.60000000000002" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="140.8000244140625" minHeight="10.0" percentHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="55.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="22.666625976562557" percentWidth="5.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="35.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="0.0" percentWidth="5.0" />
+   </columnConstraints>
+   <children>
+      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" styleClass="table" stylesheets="@stylesheet.css" GridPane.rowIndex="3" GridPane.rowSpan="2">
+        <columns>
+            <TableColumn fx:id="gebruikersnaamColumn" prefWidth="75.0" styleClass="tableColumn" text="Gebruikersnaam" />
+          <TableColumn fx:id="voornaamColumn" prefWidth="75.0" styleClass="tableColumn" text="Voornaam" />
+          <TableColumn fx:id="achternaamColumn" prefWidth="75.0" styleClass="tableColumn" text="Achternaam" />
+            <TableColumn fx:id="leeftijdColumn" prefWidth="75.0" styleClass="tableColumn" text="Leeftijd" />
+        </columns>
+         <GridPane.margin>
+            <Insets left="30.0" />
+         </GridPane.margin>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button fx:id="filterOpenstaand" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" styleClass="btns" stylesheets="@stylesheet.css" text="Filter" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets left="10.0" right="10.0" />
+         </GridPane.margin></Button>
+      <Button fx:id="filterAfgehandeld" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" styleClass="btns" stylesheets="@stylesheet.css" text="Filter" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets left="10.0" right="10.0" />
+         </GridPane.margin></Button>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" styleClass="dashboardTitle" stylesheets="@stylesheet.css" text="Patienten">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnTicketToevoegen" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnTicketToevoegenPressed" prefHeight="32.0" styleClass="btns" stylesheets="@stylesheet.css" text="Patient toevoegen">
+               <HBox.margin>
+                  <Insets left="20.0" top="40.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Label fx:id="lblError" textFill="RED" GridPane.rowIndex="5" />
+   </children>
+</fx:root>

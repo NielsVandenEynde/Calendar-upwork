@@ -1,0 +1,31 @@
+
+
+
+
+.popupscreen{
+/*    -fx-background-image: url("images/vinci_logo.png");*/
+    -fx-background-color: linear-gradient(to bottom right, #386096, #288bbe);
+    -fx-effect: dropshadow(three-pass-box, black, 5, 0.3, 0, 0); 
+}
+
+.logobanner {
+    -fx-background-color: white;
+/*    -fx-effect: dropshadow(three-pass-box, grey, 10, 0.3, 0, 0); */
+    
+}
+
+
+.formlabel {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+
+.loginbackground {
+    -fx-background-image: url("background2.jpg");
+    -fx-background-size:100% 100%;
+    -fx-background-repeat: repeat;   
+/*    -fx-background-size: 900 506;*/
+    -fx-background-position: center center;
+}
